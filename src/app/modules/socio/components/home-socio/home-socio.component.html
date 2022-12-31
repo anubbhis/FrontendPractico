@@ -1,0 +1,55 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="estado">
+    <th mat-header-cell *matHeaderCellDef> Estado </th>
+    <td mat-cell *matCellDef="let element">
+      <mat-slide-toggle (change)="cambiarEstadoSocio($event, element)"
+          class="example-margin"
+          [color]="color"
+          [checked]="element.estado==checked"
+          [disabled]="disabled">
+        Desliza!
+      </mat-slide-toggle>
+    </td>
+  </ng-container>
+  <!-- RUT Column -->
+  <ng-container matColumnDef="rut">
+    <th mat-header-cell *matHeaderCellDef> RUT </th>
+    <td mat-cell *matCellDef="let element"> {{element.rut}} </td>
+  </ng-container>
+
+  <!-- nombre Column -->
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+    <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+  </ng-container>
+
+  <!-- Dirección Column -->
+  <ng-container matColumnDef="direccion">
+    <th mat-header-cell *matHeaderCellDef> Dirección </th>
+    <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
+  </ng-container>
+
+  <!-- Comuna Column -->
+  <ng-container matColumnDef="comuna">
+    <th mat-header-cell *matHeaderCellDef> Comuna </th>
+    <td mat-cell *matCellDef="let element"> {{element.comuna}} </td>
+  </ng-container>
+
+  <!-- Botones Column -->
+  <ng-container matColumnDef="opciones">
+    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button (click)="editarSocio(element)">
+        <mat-icon>editar</mat-icon>
+      </button>
+
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<button mat-fab (click)="agregarSocio()">
+  <mat-icon>Agregar</mat-icon>
+</button>

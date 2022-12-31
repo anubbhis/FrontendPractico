@@ -1,0 +1,26 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Rut</mat-label>
+    <input matInput formControlName="formGroup.controls.rut.value">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Razón</mat-label>
+    <input matInput formControlName="formGroup.controls.razon.value">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Dirección</mat-label>
+    <input matInput formControlName="formGroup.controls.direccion.value">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Comuna</mat-label>
+    <input matInput formControlName="formGroup.controls.comuna.value">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Fecha</mat-label>
+    <input matInput formControlName="formGroup.controls.fecha.value" [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <button mat-raised-button type="submit">Guardar</button>
+</form>
+
